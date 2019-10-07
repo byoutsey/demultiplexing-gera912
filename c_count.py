@@ -49,6 +49,7 @@ output=args.outputname
 mean_scores = []
 
 # Initiates a variable.
+#what does the variable do? 
 LN = 0
 
 # opens and unzips file to read and stores the file as a variable.
@@ -70,6 +71,8 @@ with gzip.open(file,"rt") as fh:
 
         # Stores the lenghth of line 2 into a variable.
         total=len(L2)
+        #All the reads are the same length so you only need to do this calculation once
+        
 
         # Break loop.
         break
@@ -86,6 +89,7 @@ def convert_phred(letter):
     return x
 
 # Creates an empty list
+#this stores mean scores for each read right? 
 mean_scores = []
 
 # A for loop to insert 101 elements.
@@ -100,7 +104,7 @@ for i in range(total):
 
 # opens and unzips file to read and stores the file as a variable.
 with gzip.open(file,"rt") as fh:
-
+#iterating through the same file twice is inefficient. There is a way to do everything, while only reading through input once. 
      # A for loop that goes through each line in the text file.
     for line in fh:
 
@@ -148,3 +152,5 @@ plt.ylabel('Mean Quality Score')
 
 # outputs a png file
 plt.savefig(output)
+
+#looks good to me. Works alright
